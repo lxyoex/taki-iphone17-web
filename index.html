@@ -10,7 +10,7 @@ button{border:0;background:none;color:inherit;font:inherit;cursor:pointer;paddin
 /* LINE: switch instantly without screen motion */
 .screen.line-screen.active{animation:none!important}
 @keyframes screenIn{from{opacity:.3;transform:translateX(8px)}to{opacity:1;transform:translateX(0)}}
-.wallpaper{position:absolute;inset:0;background:#000 url("assets/Lock Screen.png") center center / 100% 100% no-repeat;z-index:0}
+.wallpaper{position:absolute;inset:0;background:#000 url("assets/images/Lock Screen.png") center center / 100% 100% no-repeat;z-index:0}
 .wallpaper:after{content:"";position:absolute;inset:0;background:linear-gradient(#0000 50%,#0002)}
 .lockphoto{filter:none}.passphoto{filter:blur(18px);transform:scale(1.06)}
 .asset{position:absolute;display:block;object-fit:contain;max-width:none;user-select:none;pointer-events:none}
@@ -24,7 +24,7 @@ button{border:0;background:none;color:inherit;font:inherit;cursor:pointer;paddin
 .n1{bottom:274px}.n2{bottom:194px}.n3{bottom:114px}
 .circular{position:absolute;width:58px;height:58px;bottom:40px;object-fit:contain;pointer-events:none}
 .flash{left:25px}.camera{right:25px}
-.pass-bg{position:absolute;inset:0;background:#000 url("assets/Passcord Screen.png") center center / 100% 100% no-repeat;filter:none;transform:none}
+.pass-bg{position:absolute;inset:0;background:#000 url("assets/images/Passcord Screen.png") center center / 100% 100% no-repeat;filter:none;transform:none}
 .passcode-img{position:absolute;left:50%;top:60%;width:283px;height:377px;transform:translate(-50%,-50%);object-fit:contain;pointer-events:none}
 .pass-keys{position:absolute;left:50%;top:60%;width:283px;height:377px;transform:translate(-50%,-50%);display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,1fr);padding:0;gap:0}
 .pass-keys button{color:transparent;border-radius:50%;margin:5px;outline:none}.pass-keys button:active{background:#ffffff22}
@@ -187,67 +187,67 @@ img.pc{object-fit:fill;pointer-events:none;user-select:none;-webkit-user-drag:no
 <div class="wallpaper lockphoto"></div>
 <div class="screen active" id="lock">
  <div class="wallpaper lockphoto"></div>
- <div class="statusbar"><img src="assets/Status Bar.png"></div>
- <img class="asset clock-img" src="assets/Clock.png">
- <img class="notif n1" src="assets/Notification_message.png" data-next="chat" alt="메시지 알림">
- <img class="notif n2" src="assets/Notification_insta.png" alt="Instagram 알림">
- <img class="notif n3" src="assets/Notification_line.png" data-next="line-chat" alt="LINE 알림">
- <img class="circular flash" src="assets/Flashlight Button.png"><img class="circular camera" src="assets/Camera Button.png">
+ <div class="statusbar"><img src="assets/images/Status Bar.png"></div>
+ <img class="asset clock-img" src="assets/images/Clock.png">
+ <img class="notif n1" src="assets/images/Notification_message.png" data-next="chat" alt="메시지 알림">
+ <img class="notif n2" src="assets/images/Notification_insta.png" alt="Instagram 알림">
+ <img class="notif n3" src="assets/images/Notification_line.png" data-next="line-chat" alt="LINE 알림">
+ <img class="circular flash" src="assets/images/Flashlight Button.png"><img class="circular camera" src="assets/images/Camera Button.png">
  <button id="lockTap" style="position:absolute;inset:0;background:transparent;z-index:1" aria-label="암호 입력"></button>
  <div style="position:absolute;inset:0;z-index:2;pointer-events:none"></div>
 </div>
 <div class="screen" id="passcode">
- <div class="pass-bg"></div><div class="statusbar"><img src="assets/Status Bar.png"></div>
- <div class="pass-title-wrap"><img src="assets/Passcode.png"></div><div class="pass-dots"><i></i><i></i><i></i><i></i></div><div class="pass-error" id="passError"></div>
- <img class="passcode-img" src="assets/Passcode Keypad.png">
+ <div class="pass-bg"></div><div class="statusbar"><img src="assets/images/Status Bar.png"></div>
+ <div class="pass-title-wrap"><img src="assets/images/Passcode.png"></div><div class="pass-dots"><i></i><i></i><i></i><i></i></div><div class="pass-error" id="passError"></div>
+ <img class="passcode-img" src="assets/images/Passcode Keypad.png">
  <div class="pass-keys">
   <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button><button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button><button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button><button disabled></button><button data-key="0">0</button><button data-key="back">⌫</button>
  </div>
- <img src="assets/Bottom Action Bar.png" style="position:absolute;width:283px;height:36px;bottom:34px;left:50%;transform:translateX(-50%);object-fit:contain">
+ <img src="assets/images/Bottom Action Bar.png" style="position:absolute;width:283px;height:36px;bottom:34px;left:50%;transform:translateX(-50%);object-fit:contain">
  <button id="passCancel" aria-label="취소" style="position:absolute;right:calc(50% - 141px);bottom:34px;width:70px;height:36px;z-index:5;color:transparent">취소</button>
 </div>
 <div class="screen" id="home">
- <div class="wallpaper"></div><div class="statusbar"><img src="assets/Status Bar.png"></div>
+ <div class="wallpaper"></div><div class="statusbar"><img src="assets/images/Status Bar.png"></div>
  <div class="app-grid" id="appGrid">
-  <button class="app" data-app="instagram"><img src="assets/App Item.png"></button>
-  <button class="app" data-app="notes"><img src="assets/App Item2.png"></button>
-  <button class="app" data-app="youtube"><img src="assets/App Item3.png"></button>
-  <button class="app" data-app="mail"><img src="assets/App Item4.png"></button>
-  <button class="app" data-app="google"><img src="assets/App Item5.png"></button>
-  <button class="app" data-app="safari"><img src="assets/App Item6.png"></button>
-  <button class="app" data-app="facetime"><img src="assets/App Item7.png"></button>
-  <button class="app" data-app="clock"><img src="assets/App Item8.png"></button>
-  <button class="app" data-app="settings"><img src="assets/App Item9.png"></button>
-  <button class="app" data-app="calendar"><img src="assets/App Item10.png"></button>
-  <button class="app" data-app="weather"><img src="assets/App Item11.png"></button>
-  <button class="app" data-app="camera"><img src="assets/App Item12.png"></button>
-  <button class="app" data-app="spotify"><img src="assets/App Item13.png"></button>
-  <button class="app" data-app="setlog"><img src="assets/App Item14.png"></button>
-  <button class="app" data-app="tiktok"><img src="assets/App Item15.png"></button>
+  <button class="app" data-app="instagram"><img src="assets/images/App Item.png"></button>
+  <button class="app" data-app="notes"><img src="assets/images/App Item2.png"></button>
+  <button class="app" data-app="youtube"><img src="assets/images/App Item3.png"></button>
+  <button class="app" data-app="mail"><img src="assets/images/App Item4.png"></button>
+  <button class="app" data-app="google"><img src="assets/images/App Item5.png"></button>
+  <button class="app" data-app="safari"><img src="assets/images/App Item6.png"></button>
+  <button class="app" data-app="facetime"><img src="assets/images/App Item7.png"></button>
+  <button class="app" data-app="clock"><img src="assets/images/App Item8.png"></button>
+  <button class="app" data-app="settings"><img src="assets/images/App Item9.png"></button>
+  <button class="app" data-app="calendar"><img src="assets/images/App Item10.png"></button>
+  <button class="app" data-app="weather"><img src="assets/images/App Item11.png"></button>
+  <button class="app" data-app="camera"><img src="assets/images/App Item12.png"></button>
+  <button class="app" data-app="spotify"><img src="assets/images/App Item13.png"></button>
+  <button class="app" data-app="setlog"><img src="assets/images/App Item14.png"></button>
+  <button class="app" data-app="tiktok"><img src="assets/images/App Item15.png"></button>
  </div>
- <img class="dock" src="assets/Dock.png">
+ <img class="dock" src="assets/images/Dock.png">
  <div class="dock-hit">
-  <button data-app="phone" aria-label="전화"><img id="phoneDockIcon" src="assets/Notification App.png" data-badged="assets/Notification App.png" data-clean="assets/Dock_App Icons.png"></button>
-  <button data-app="line" aria-label="LINE"><img id="lineDockIcon" src="assets/Notification App2.png" data-badged="assets/Notification App2.png" data-clean="assets/Dock_App Icons2.png"></button>
-  <button data-app="messages" aria-label="메시지"><img id="messageDockIcon" src="assets/Notification App3.png" data-badged="assets/Notification App3.png" data-clean="assets/Dock_App Icons3.png"></button>
-  <button data-app="photos" aria-label="사진"><img id="photosDockIcon" src="assets/Dock_App Icons4.png" data-badged="assets/Dock_App Icons4.png" data-clean="assets/Dock_App Icons4.png"></button>
+  <button data-app="phone" aria-label="전화"><img id="phoneDockIcon" src="assets/images/Notification App.png" data-badged="assets/images/Notification App.png" data-clean="assets/images/Dock_App Icons.png"></button>
+  <button data-app="line" aria-label="LINE"><img id="lineDockIcon" src="assets/images/Notification App2.png" data-badged="assets/images/Notification App2.png" data-clean="assets/images/Dock_App Icons2.png"></button>
+  <button data-app="messages" aria-label="메시지"><img id="messageDockIcon" src="assets/images/Notification App3.png" data-badged="assets/images/Notification App3.png" data-clean="assets/images/Dock_App Icons3.png"></button>
+  <button data-app="photos" aria-label="사진"><img id="photosDockIcon" src="assets/images/Dock_App Icons4.png" data-badged="assets/images/Dock_App Icons4.png" data-clean="assets/images/Dock_App Icons4.png"></button>
  </div>
 </div>
 <div class="screen" id="phone">
- <img class="call-bg" src="assets/Call Screen_last.png" alt="최근 통화">
- <div class="pc call-list-scroll" id="phoneList" style="--x:0;--y:342;--w:1206;--h:2228"><img src="assets/Call List.png" alt="최근 통화 목록"><i></i></div>
+ <img class="call-bg" src="assets/images/Call Screen_last.png" alt="최근 통화">
+ <div class="pc call-list-scroll" id="phoneList" style="--x:0;--y:342;--w:1206;--h:2228"><img src="assets/images/Call List.png" alt="최근 통화 목록"><i></i></div>
  <button type="button" class="pc phone-back-hit" data-back style="--x:66;--y:172;--w:170;--h:142" aria-label="뒤로"></button>
- <img class="pc pc-bar" src="assets/Bottom Navigation Bar.png" style="--x:48;--y:2364;--w:1098;--h:183" alt="">
- <img class="pc pc-bar" src="assets/Calls Tab_f.png" style="--x:60;--y:2380;--w:303;--h:150" alt="">
+ <img class="pc pc-bar" src="assets/images/Bottom Navigation Bar.png" style="--x:48;--y:2364;--w:1098;--h:183" alt="">
+ <img class="pc pc-bar" src="assets/images/Calls Tab_f.png" style="--x:60;--y:2380;--w:303;--h:150" alt="">
  <button type="button" class="pc phone-tab-btn phoneCallsTab" style="--x:48;--y:2364;--w:342;--h:183" aria-label="최근 통화"></button>
  <button type="button" class="pc phone-tab-btn phoneKeypadTab" style="--x:590;--y:2364;--w:320;--h:183" aria-label="키패드"></button>
 </div>
 <div class="screen" id="phone-keypad">
- <img class="call-bg" src="assets/Call Screen_key_pad.png" alt="전화 키패드">
+ <img class="call-bg" src="assets/images/Call Screen_key_pad.png" alt="전화 키패드">
  <div class="pc pc-black" style="--x:0;--y:380;--w:1206;--h:2190"></div>
  <div class="pc kp-number" id="phoneNumberValue" style="--x:60;--y:418;--w:1086;--h:150"></div>
  <div class="pc kp-layer" style="--x:180;--y:672;--w:849;--h:1427">
-  <img src="assets/Call Keypad.png" alt="">
+  <img src="assets/images/Call Keypad.png" alt="">
   <button type="button" class="kp-key" data-phone-key="1" style="--kx:0;--ky:0" aria-label="1"></button>
   <button type="button" class="kp-key" data-phone-key="2" style="--kx:303;--ky:0" aria-label="2"></button>
   <button type="button" class="kp-key" data-phone-key="3" style="--kx:606;--ky:0" aria-label="3"></button>
@@ -262,61 +262,61 @@ img.pc{object-fit:fill;pointer-events:none;user-select:none;-webkit-user-drag:no
   <button type="button" class="kp-key" data-phone-action="back" style="--kx:606;--ky:886" aria-label="지우기"></button>
   <button type="button" class="kp-key kp-call" id="phoneStartCall" style="--kx:303;--ky:1182" aria-label="발신"></button>
  </div>
- <img class="pc pc-bar" src="assets/Bottom Navigation Bar.png" style="--x:48;--y:2364;--w:1098;--h:183" alt="">
- <img class="pc pc-bar" src="assets/Keypad Tap_f.png" style="--x:600;--y:2380;--w:282;--h:150" alt="">
+ <img class="pc pc-bar" src="assets/images/Bottom Navigation Bar.png" style="--x:48;--y:2364;--w:1098;--h:183" alt="">
+ <img class="pc pc-bar" src="assets/images/Keypad Tap_f.png" style="--x:600;--y:2380;--w:282;--h:150" alt="">
  <button type="button" class="pc phone-tab-btn phoneCallsTab" style="--x:48;--y:2364;--w:342;--h:183" aria-label="최근 통화"></button>
  <button type="button" class="pc phone-tab-btn phoneKeypadTab" style="--x:590;--y:2364;--w:320;--h:183" aria-label="키패드"></button>
 </div>
 <div class="screen" id="phone-outgoing">
- <img class="call-bg" src="assets/Call Screen_Loding.png" alt="발신 중">
+ <img class="call-bg" src="assets/images/Call Screen_Loding.png" alt="발신 중">
  <button class="phone-end-hit" id="phoneEndCall" aria-label="통화 종료">종료</button>
 </div>
 <div class="screen" id="phone-failed">
- <img class="call-bg" src="assets/Call Screen_Loding_fale.png" alt="통화 연결 실패">
+ <img class="call-bg" src="assets/images/Call Screen_Loding_fale.png" alt="통화 연결 실패">
  <button type="button" class="pc fail-hit" id="phoneFailCancel" style="--x:110;--y:2130;--w:262;--h:330" aria-label="취소">취소</button>
  <button type="button" class="pc fail-hit" id="phoneFailRetry" style="--x:836;--y:2130;--w:262;--h:330" aria-label="다시 전화">다시 전화</button>
 </div>
 <div class="screen" id="messages">
- <div class="statusbar"><img src="assets/Status Bar.png"></div><img class="topbar" src="assets/Header.png">
- <img class="backbtn" src="assets/Back Button.png" data-back><div class="msg-title">메시지</div><img class="filterbtn" src="assets/Fitter Button.png">
+ <div class="statusbar"><img src="assets/images/Status Bar.png"></div><img class="topbar" src="assets/images/Header.png">
+ <img class="backbtn" src="assets/images/Back Button.png" data-back><div class="msg-title">메시지</div><img class="filterbtn" src="assets/images/Fitter Button.png">
  <div class="messages-list" id="messagesList"></div>
 </div>
 <div class="screen" id="chat">
- <img class="chat-head" src="assets/Header.png"><button class="chat-back" id="chatBack" aria-label="뒤로"></button><img class="chat-avatar" src="assets/Profile.png">
- <div class="chat-area" id="chatArea"></div><img class="chat-compose" src="assets/Text Field.png"><input class="chat-input" id="chatInput" placeholder="iMessage">
+ <img class="chat-head" src="assets/images/Header.png"><button class="chat-back" id="chatBack" aria-label="뒤로"></button><img class="chat-avatar" src="assets/images/Profile.png">
+ <div class="chat-area" id="chatArea"></div><img class="chat-compose" src="assets/images/Text Field.png"><input class="chat-input" id="chatInput" placeholder="iMessage">
 </div>
 <div class="screen" id="photos">
- <div class="gallery-picture-viewport" id="galleryViewport" aria-label="사진 갤러리"><img class="gallery-picture" id="galleryPicture" src="assets/Picture.png" alt="갤러리 사진"></div>
- <img class="backbtn gallery-back" src="assets/Back Button.png" data-back alt="뒤로가기">
- <img class="gallery-header" src="assets/Header_G.png" alt="">
- <img class="gallery-nav" src="assets/Navigation Item_G.png" alt="">
- <img class="gallery-search" src="assets/Search Button.png" id="gallerySearch" alt="검색">
+ <div class="gallery-picture-viewport" id="galleryViewport" aria-label="사진 갤러리"><img class="gallery-picture" id="galleryPicture" src="assets/images/Picture.png" alt="갤러리 사진"></div>
+ <img class="backbtn gallery-back" src="assets/images/Back Button.png" data-back alt="뒤로가기">
+ <img class="gallery-header" src="assets/images/Header_G.png" alt="">
+ <img class="gallery-nav" src="assets/images/Navigation Item_G.png" alt="">
+ <img class="gallery-search" src="assets/images/Search Button.png" id="gallerySearch" alt="검색">
 </div>
-<div class="screen" id="instagram"><div class="statusbar"><img src="assets/Status Bar.png"></div><img class="backbtn" src="assets/Back Button.png" data-back><div style="position:absolute;top:100px;left:20px;font-size:24px">Instagram</div><img src="assets/Notification App4.png" style="position:absolute;top:150px;left:25px;width:72px;height:95px;object-fit:contain"></div>
+<div class="screen" id="instagram"><div class="statusbar"><img src="assets/images/Status Bar.png"></div><img class="backbtn" src="assets/images/Back Button.png" data-back><div style="position:absolute;top:100px;left:20px;font-size:24px">Instagram</div><img src="assets/images/Notification App4.png" style="position:absolute;top:150px;left:25px;width:72px;height:95px;object-fit:contain"></div>
 <div class="screen line-screen" id="line-home">
  <div class="line-scroll home-scroll" id="lineHomeScroll">
-  <img class="line-piece line-ad" src="assets/ad.png" alt="">
-  <img class="line-piece line-service" src="assets/service.png" alt="">
-  <img class="line-piece line-group" src="assets/group tap.png" alt="">
-  <img class="line-piece line-friends" src="assets/friends list.png" alt="">
+  <img class="line-piece line-ad" src="assets/images/ad.png" alt="">
+  <img class="line-piece line-service" src="assets/images/service.png" alt="">
+  <img class="line-piece line-group" src="assets/images/group tap.png" alt="">
+  <img class="line-piece line-friends" src="assets/images/friends list.png" alt="">
  </div>
- <img class="line-header-home" src="assets/header_l_h.png" alt="">
- <button type="button" class="line-back-hit" id="lineBackButton" aria-label="홈 화면으로 돌아가기"><img src="assets/Back Button.png" alt="뒤로"></button>
- <div class="line-bottom"><img src="assets/bottom navigation bar_line.png" alt=""><button class="line-tab line-home-tab" aria-label="홈"></button><button class="line-tab line-message-tab" aria-label="대화"></button></div>
+ <img class="line-header-home" src="assets/images/header_l_h.png" alt="">
+ <button type="button" class="line-back-hit" id="lineBackButton" aria-label="홈 화면으로 돌아가기"><img src="assets/images/Back Button.png" alt="뒤로"></button>
+ <div class="line-bottom"><img src="assets/images/bottom navigation bar_line.png" alt=""><button class="line-tab line-home-tab" aria-label="홈"></button><button class="line-tab line-message-tab" aria-label="대화"></button></div>
 </div>
 <div class="screen line-screen" id="line-chat">
  <div class="line-scroll chat-scroll" id="lineChatScroll">
-  <img class="line-piece line-ad" src="assets/ad.png" alt="">
-  <img class="line-piece line-personal" src="assets/personal chat list.png" alt="">
+  <img class="line-piece line-ad" src="assets/images/ad.png" alt="">
+  <img class="line-piece line-personal" src="assets/images/personal chat list.png" alt="">
  </div>
- <img class="line-header-chat" src="assets/header_cc.png" alt="">
- <div class="line-bottom"><img src="assets/bottom navigation bar_line_chat.png" alt=""><button class="line-tab line-home-tab" aria-label="홈"></button><button class="line-tab line-message-tab" aria-label="대화"></button></div>
+ <img class="line-header-chat" src="assets/images/header_cc.png" alt="">
+ <div class="line-bottom"><img src="assets/images/bottom navigation bar_line_chat.png" alt=""><button class="line-tab line-home-tab" aria-label="홈"></button><button class="line-tab line-message-tab" aria-label="대화"></button></div>
 </div>
-<div class="screen" id="other"><div class="statusbar"><img src="assets/Status Bar.png"></div><img class="backbtn" src="assets/Back Button.png" data-back><div id="otherTitle" style="position:absolute;top:100px;left:20px;font-size:22px">앱</div></div>
+<div class="screen" id="other"><div class="statusbar"><img src="assets/images/Status Bar.png"></div><img class="backbtn" src="assets/images/Back Button.png" data-back><div id="otherTitle" style="position:absolute;top:100px;left:20px;font-size:22px">앱</div></div>
 <div class="screen" id="memo">
- <img class="call-bg" src="assets/Memo Screen.png" alt="메모">
+ <img class="call-bg" src="assets/images/Memo Screen.png" alt="메모">
  <div class="pc pc-black" style="--x:50;--y:2380;--w:1110;--h:185"></div>
- <img class="pc pc-bar" src="assets/Memo search bar.png" style="--x:69;--y:2394;--w:1068;--h:153" alt="">
+ <img class="pc pc-bar" src="assets/images/Memo search bar.png" style="--x:69;--y:2394;--w:1068;--h:153" alt="">
  <button type="button" class="pc phone-back-hit" data-back style="--x:75;--y:180;--w:181;--h:126" aria-label="뒤로"></button>
  <button type="button" class="pc memo-card" data-memo="birth" style="--x:33;--y:693;--w:1137;--h:251" aria-label="생일"></button>
  <button type="button" class="pc memo-card" data-memo="puding" style="--x:33;--y:1098;--w:1137;--h:251" aria-label="푸딩 레시피"></button>
@@ -325,40 +325,40 @@ img.pc{object-fit:fill;pointer-events:none;user-select:none;-webkit-user-drag:no
  <button type="button" class="pc memo-card" data-memo="place" style="--x:33;--y:2079;--w:1137;--h:251" aria-label="같이 가고 싶은 장소"></button>
 </div>
 <div class="screen" id="memo-birth">
- <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/Memo_birth.png');background-size:100% calc(2622/340*100%)"></div>
+ <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/images/Memo_birth.png');background-size:100% calc(2622/340*100%)"></div>
  <button type="button" class="pc phone-back-hit" data-note-back style="--x:75;--y:180;--w:181;--h:126" aria-label="메모 목록으로"></button>
  <button type="button" class="pc phone-back-hit" data-note-done="birth" style="--x:1002;--y:180;--w:126;--h:126" aria-label="완료"></button>
- <div class="pc note-scroll" id="note-scroll-birth" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/Memo_birth.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-birth" data-note="birth" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:537.5;--mh:2037.5"></textarea></div></div>
+ <div class="pc note-scroll" id="note-scroll-birth" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/images/Memo_birth.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-birth" data-note="birth" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:537.5;--mh:2037.5"></textarea></div></div>
 </div>
 <div class="screen" id="memo-puding">
- <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/Memo_puding.png');background-size:100% calc(2622/340*100%)"></div>
+ <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/images/Memo_puding.png');background-size:100% calc(2622/340*100%)"></div>
  <button type="button" class="pc phone-back-hit" data-note-back style="--x:75;--y:180;--w:181;--h:126" aria-label="메모 목록으로"></button>
  <button type="button" class="pc phone-back-hit" data-note-done="puding" style="--x:1002;--y:180;--w:126;--h:126" aria-label="완료"></button>
- <div class="pc note-scroll" id="note-scroll-puding" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/memo_puding_in.png" style="left:calc(75*var(--kx));top:calc((363 - 340)*var(--ky));width:calc(1053*var(--kx));height:calc(2317*var(--ky))" alt=""><textarea class="note-add" id="note-add-puding" data-note="puding" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:2679;--mh:300"></textarea></div></div>
+ <div class="pc note-scroll" id="note-scroll-puding" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/images/memo_puding_in.png" style="left:calc(75*var(--kx));top:calc((363 - 340)*var(--ky));width:calc(1053*var(--kx));height:calc(2317*var(--ky))" alt=""><textarea class="note-add" id="note-add-puding" data-note="puding" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:2679;--mh:300"></textarea></div></div>
 </div>
 <div class="screen" id="memo-make">
- <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/Memo_make.png');background-size:100% calc(2622/340*100%)"></div>
+ <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/images/Memo_make.png');background-size:100% calc(2622/340*100%)"></div>
  <button type="button" class="pc phone-back-hit" data-note-back style="--x:75;--y:180;--w:181;--h:126" aria-label="메모 목록으로"></button>
  <button type="button" class="pc phone-back-hit" data-note-done="make" style="--x:1002;--y:180;--w:126;--h:126" aria-label="완료"></button>
- <div class="pc note-scroll" id="note-scroll-make" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/Memo_make.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-make" data-note="make" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:639.5;--mh:1935.5"></textarea></div></div>
+ <div class="pc note-scroll" id="note-scroll-make" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/images/Memo_make.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-make" data-note="make" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:639.5;--mh:1935.5"></textarea></div></div>
 </div>
 <div class="screen" id="memo-mistake">
- <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/Memo_mistake.png');background-size:100% calc(2622/340*100%)"></div>
+ <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/images/Memo_mistake.png');background-size:100% calc(2622/340*100%)"></div>
  <button type="button" class="pc phone-back-hit" data-note-back style="--x:75;--y:180;--w:181;--h:126" aria-label="메모 목록으로"></button>
  <button type="button" class="pc phone-back-hit" data-note-done="mistake" style="--x:1002;--y:180;--w:126;--h:126" aria-label="완료"></button>
- <div class="pc note-scroll" id="note-scroll-mistake" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/Memo_mistake.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-mistake" data-note="mistake" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:588.5;--mh:1986.5"></textarea></div></div>
+ <div class="pc note-scroll" id="note-scroll-mistake" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/images/Memo_mistake.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-mistake" data-note="mistake" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:588.5;--mh:1986.5"></textarea></div></div>
 </div>
 <div class="screen" id="memo-place">
- <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/Memo_place.png');background-size:100% calc(2622/340*100%)"></div>
+ <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/images/Memo_place.png');background-size:100% calc(2622/340*100%)"></div>
  <button type="button" class="pc phone-back-hit" data-note-back style="--x:75;--y:180;--w:181;--h:126" aria-label="메모 목록으로"></button>
  <button type="button" class="pc phone-back-hit" data-note-done="place" style="--x:1002;--y:180;--w:126;--h:126" aria-label="완료"></button>
- <div class="pc note-scroll" id="note-scroll-place" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/Memo_place.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-place" data-note="place" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:843.5;--mh:1731.5"></textarea></div></div>
+ <div class="pc note-scroll" id="note-scroll-place" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/images/Memo_place.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-place" data-note="place" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:843.5;--mh:1731.5"></textarea></div></div>
 </div>
 <div class="screen" id="youtube">
- <img class="call-bg" src="assets/Youtube Screen.png" alt="Youtube">
- <div class="pc yt-scroll" id="ytScroll" style="--x:0;--y:330;--w:1206;--h:2292"><img src="assets/Youtube video list.png" alt="영상 목록"><i></i></div>
- <img class="pc yt-bottom" id="ytBottom" src="assets/Youtube bottom navigation bar.png" style="--x:0;--y:2412;--w:1209;--h:210" alt="">
- <div class="pc yt-clip" style="--x:0;--y:130;--w:1206;--h:200"><img src="assets/Youtube nevigation bar.png" alt=""></div>
+ <img class="call-bg" src="assets/images/Youtube Screen.png" alt="Youtube">
+ <div class="pc yt-scroll" id="ytScroll" style="--x:0;--y:330;--w:1206;--h:2292"><img src="assets/images/Youtube video list.png" alt="영상 목록"><i></i></div>
+ <img class="pc yt-bottom" id="ytBottom" src="assets/images/Youtube bottom navigation bar.png" style="--x:0;--y:2412;--w:1209;--h:210" alt="">
+ <div class="pc yt-clip" style="--x:0;--y:130;--w:1206;--h:200"><img src="assets/images/Youtube nevigation bar.png" alt=""></div>
  <button type="button" class="pc phone-back-hit" id="ytLogo" style="--x:40;--y:190;--w:350;--h:110;z-index:8" aria-label="홈으로"></button>
 </div>
 <div style="position:absolute;z-index:50;bottom:7px;left:50%;transform:translateX(-50%);width:118px;height:5px;border-radius:5px;background:#fff;cursor:pointer" id="homeIndicator"></div>
@@ -441,7 +441,7 @@ document.getElementById('phoneFailRetry').addEventListener('click',()=>{if(callT
 // Restore the original compact message-list rows with side margins and natural spacing.
 const messageRowAssets=['List Item_m1_1.png','List Item_m2.png','List Item_m3.png','List Item_m4.png','List Item_m5.png','List Item_m6.png','List Item_m7.png','List Item_m8.png'];
 const messagesList=document.getElementById('messagesList');
-messagesList.innerHTML=messageRowAssets.map((f,i)=>`<button class="list-item message-row" data-message="${i}" aria-label="메시지 ${i+1}"><img src="assets/${f}" alt="">${i===0?'<span class="msg-unread-dot" id="msgUnreadDot"></span>':''}</button>`).join('');
+messagesList.innerHTML=messageRowAssets.map((f,i)=>`<button class="list-item message-row" data-message="${i}" aria-label="메시지 ${i+1}"><img src="assets/images/${f}" alt="">${i===0?'<span class="msg-unread-dot" id="msgUnreadDot"></span>':''}</button>`).join('');
 messagesList.addEventListener('click',e=>{if(e.target.closest('.message-row[data-message="0"]')){show('chat');requestAnimationFrame(()=>{const area=document.getElementById('chatArea');area.scrollTop=area.scrollHeight;});}});
 new MutationObserver(()=>{if(document.getElementById('chat').classList.contains('active')){const d=document.getElementById('msgUnreadDot');if(d)d.remove();}}).observe(document.getElementById('chat'),{attributes:true,attributeFilter:['class']});
 const chatItems=[
@@ -454,7 +454,7 @@ const chatItems=[
  {src:'Send Message5.png',side:'out',time:'23:17'},
  {src:'Yuma Message2.png',side:'in',time:null}
 ];
-const chatArea=document.getElementById('chatArea');chatArea.innerHTML=chatItems.map(m=>`${m.time?`<div class="chat-time">${m.time}</div>`:''}<div class="chat-msg ${m.side==='in'?'incoming':'outgoing'}"><img src="assets/${m.src}" alt=""></div>`).join('');
+const chatArea=document.getElementById('chatArea');chatArea.innerHTML=chatItems.map(m=>`${m.time?`<div class="chat-time">${m.time}</div>`:''}<div class="chat-msg ${m.side==='in'?'incoming':'outgoing'}"><img src="assets/images/${m.src}" alt=""></div>`).join('');
 requestAnimationFrame(()=>{chatArea.scrollTop=chatArea.scrollHeight;});
 document.querySelectorAll('[data-app]').forEach(b=>b.addEventListener('click',()=>{
  const a=b.dataset.app;
@@ -477,7 +477,7 @@ document.querySelectorAll('[data-app]').forEach(b=>b.addEventListener('click',()
 }));
 document.getElementById('chatBack').addEventListener('click',()=>{
  const first=document.querySelector('#messagesList [data-message="0"] img');
- if(first) first.src='assets/List Item_m1.png';
+ if(first) first.src='assets/images/List Item_m1.png';
  show('messages');
 });
 // LINE navigation and exit controls
