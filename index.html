@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"><title>iPhone 17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:#292929;color:#fff}body{display:flex;align-items:center;justify-content:center;padding:0;min-height:100dvh;overflow:hidden}
+button{border:0;background:none;color:inherit;font:inherit;cursor:pointer;padding:0}
+.device{width:402px;height:874px;flex:0 0 402px;transform:scale(var(--device-scale,1));transform-origin:center center;position:relative;border:6px solid #101010;border-radius:48px;overflow:hidden;background:#000;box-shadow:0 20px 70px #0008;isolation:isolate}
+.screen{position:absolute;inset:0;display:none;overflow:hidden;background:#000}.screen.active{display:block;z-index:1;animation:screenIn .26s cubic-bezier(.2,.8,.2,1) both}.screen#home.active{z-index:2}
+.screen#phone.active,.screen#phone-keypad.active,.screen#phone-outgoing.active,.screen#phone-failed.active{animation:none!important}
+/* LINE: switch instantly without screen motion */
+.screen.line-screen.active{animation:none!important}
+@keyframes screenIn{from{opacity:.3;transform:translateX(8px)}to{opacity:1;transform:translateX(0)}}
+.wallpaper{position:absolute;inset:0;background:#000 url("assets/Lock Screen.png") center center / 100% 100% no-repeat;z-index:0}
+.wallpaper:after{content:"";position:absolute;inset:0;background:linear-gradient(#0000 50%,#0002)}
+.lockphoto{filter:none}.passphoto{filter:blur(18px);transform:scale(1.06)}
+.asset{position:absolute;display:block;object-fit:contain;max-width:none;user-select:none;pointer-events:none}
+.statusbar{position:absolute;z-index:20;left:0;top:0;width:100%;height:44px;pointer-events:none}
+.dynamic-island{position:absolute;z-index:100;left:50%;top:10px;transform:translateX(-50%);width:126px;height:36px;border-radius:999px;background:#000;box-shadow:inset 0 0 0 1px #101010;pointer-events:none}
+.dynamic-island:after{content:"";position:absolute;right:14px;top:11px;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#1d2438 0,#080a10 68%);opacity:.9}
+.statusbar img{position:absolute;width:331px;height:20px;left:50%;top:14px;transform:translateX(-50%)}
+.clock-img{left:50%;top:62px;width:291px;height:152px;transform:translateX(-50%);object-fit:contain}
+.notif{position:absolute;left:8px;width:374px;height:76px;object-fit:contain;cursor:pointer;pointer-events:auto;z-index:3;transition:transform .16s}
+.notif:active{transform:scale(.985)}
+.n1{bottom:274px}.n2{bottom:194px}.n3{bottom:114px}
+.circular{position:absolute;width:58px;height:58px;bottom:40px;object-fit:contain;pointer-events:none}
+.flash{left:25px}.camera{right:25px}
+.pass-bg{position:absolute;inset:0;background:#000 url("assets/Passcord Screen.png") center center / 100% 100% no-repeat;filter:none;transform:none}
+.passcode-img{position:absolute;left:50%;top:60%;width:283px;height:377px;transform:translate(-50%,-50%);object-fit:contain;pointer-events:none}
+.pass-keys{position:absolute;left:50%;top:60%;width:283px;height:377px;transform:translate(-50%,-50%);display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,1fr);padding:0;gap:0}
+.pass-keys button{color:transparent;border-radius:50%;margin:5px;outline:none}.pass-keys button:active{background:#ffffff22}
+.pass-title-wrap{position:absolute;top:calc(57% - 246px);left:50%;width:114px;height:25px;transform:translateX(-50%);overflow:hidden;pointer-events:none}.pass-title-wrap img{position:absolute;left:0;top:0;width:114px;height:51px;object-fit:contain}
+.pass-dots{position:absolute;top:calc(57% - 208px);left:50%;transform:translateX(-50%);display:flex;gap:17px;z-index:2}.pass-dots i{width:9px;height:9px;border:1px solid #fff;border-radius:50%}.pass-dots i.on{background:white}
+.pass-error{position:absolute;top:calc(57% - 166px);width:100%;text-align:center;font-size:11px;color:#fff}
+.app-grid{position:absolute;top:118px;left:18px;right:18px;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:110px;gap:0 7px}
+.app{position:relative;height:100px;display:flex;align-items:center;flex-direction:column;gap:5px}
+.app img{width:auto;height:90px;max-width:72px;object-fit:contain;pointer-events:none}.app-label{display:none}
+.dock{position:absolute;width:366px;height:103px;left:50%;bottom:8px;transform:translateX(-50%);object-fit:contain;pointer-events:none;display:none}
+.dock-hit{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:366px;height:103px;display:flex;gap:21px;align-items:center;justify-content:center;z-index:30;pointer-events:auto;padding:20px 24px;border:1px solid rgba(255,255,255,.48);border-radius:30px;background:rgba(255,255,255,.17);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);box-shadow:inset 0 1px rgba(255,255,255,.4),0 4px 20px #0002}
+.dock-hit button{width:64px;height:64px;position:relative;flex:0 0 64px;overflow:visible;display:block;pointer-events:auto;touch-action:manipulation;z-index:31}.dock-hit img{display:block;width:64px;height:64px;object-fit:contain;pointer-events:none;position:absolute;inset:0}
+.hidden{display:none!important}
+.topbar{display:none;position:absolute;left:0;top:0;width:100%;height:88px;object-fit:contain;pointer-events:none}.phone-nav,.messages-nav{position:absolute;top:48px;left:50%;transform:translateX(-50%);width:352px;height:42px;object-fit:contain;cursor:pointer;z-index:5}
+.backbtn{position:absolute;left:10px;top:48px;width:51px;height:42px;object-fit:contain;cursor:pointer;z-index:5}
+.filterbtn{position:absolute;right:12px;top:48px;width:42px;height:42px;object-fit:contain;cursor:pointer;z-index:5}
+.screen-title{position:absolute;top:55px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:600}
+.phone-list,.messages-list{position:absolute;top:94px;left:0;right:0;bottom:88px;overflow:auto;scrollbar-width:none}
+.call-list-full{display:block;width:100%;height:auto;max-width:none;pointer-events:none}
+.message-list-full{display:block;width:100%;height:auto;max-width:none;pointer-events:none}
+.phone-list .list-item{display:none}
+.list-item{width:100%;height:82px;position:relative;display:block;text-align:left;border-bottom:1px solid #292929}
+.list-item img{width:100%;height:82px;object-fit:contain;object-position:left center}
+.list-item:active{background:#ffffff12}
+.navimg{position:absolute;width:354px;height:61px;left:50%;bottom:4px;transform:translateX(-50%);object-fit:contain;cursor:pointer}
+
+.searchimg{display:none} .gallery-search{display:none}
+#photos{background:#000}
+.gallery-base{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;z-index:0;pointer-events:none}
+.gallery-picture-viewport{position:absolute;left:0;right:0;top:0;bottom:72px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none;z-index:1;touch-action:pan-y;cursor:grab}.gallery-picture-viewport::-webkit-scrollbar{display:none;width:0;height:0}
+.gallery-picture-viewport:active{cursor:grabbing}
+.gallery-picture{position:absolute;left:0;top:0;width:100%;height:auto;max-width:none;display:block;user-select:none;-webkit-user-drag:none;touch-action:pan-y;pointer-events:auto}
+.gallery-back{z-index:7;top:66px;left:26px}.gallery-header{position:absolute;left:0;top:0;width:100%;height:132px;object-fit:fill;z-index:5;pointer-events:none}
+.gallery-nav{position:absolute;left:50%;bottom:4px;transform:translateX(-50%);width:354px;height:61px;object-fit:contain;z-index:6;pointer-events:none}
+.gallery-search{position:absolute;right:22px;bottom:4px;width:61px;height:61px;object-fit:contain;z-index:6;cursor:pointer}
+
+.msg-title{position:absolute;left:17px;top:94px;font-size:20px;font-weight:700}
+.messages-list{top:132px;left:0;right:0;padding:4px 8px 0}.messages-list .message-row{height:82px;width:100%;margin:0 0 4px;border-bottom:1px solid #292929}.messages-list .message-row img{width:100%;height:82px;object-fit:contain;object-position:center center}
+.chat-head{display:block;position:absolute;left:0;top:0;width:100%;height:134px;object-fit:contain;pointer-events:none;z-index:1}
+.chat-back{position:absolute;left:10px;top:48px;width:51px;height:42px;cursor:pointer;z-index:4;background:transparent}
+.chat-avatar{position:absolute;left:50%;top:44px;transform:translateX(-50%);width:100px;height:92px;object-fit:contain;z-index:5;pointer-events:none}
+.chat-area{position:absolute;top:136px;bottom:55px;left:0;right:0;overflow:auto;scrollbar-width:none;display:flex;flex-direction:column;align-items:stretch;padding:4px 0 12px;z-index:3}
+.chat-time-img{display:none}.chat-time{width:100%;text-align:center;color:#8c8c92;font-size:9px;line-height:16px;margin:18px 0 12px;flex:none}.chat-msg{display:flex;width:100%;flex-direction:column;align-items:flex-end}.chat-msg.incoming{align-items:flex-start}.chat-msg img{display:block;max-width:254px;width:auto;height:auto;object-fit:contain;margin:4px 8px;cursor:pointer}.unread-dot{position:absolute;left:-34px;top:34px;width:7px;height:7px;border-radius:50%;background:#168cff;z-index:10;pointer-events:none;display:block;opacity:1;visibility:visible}.messages-list .list-item{padding-left:0}
+.chat-bubble{position:relative;display:block;max-width:254px;height:auto;object-fit:contain;margin:8px 8px 8px auto;cursor:pointer}
+.chat-bubble.in{margin:8px auto 8px 8px}
+.chat-compose{position:absolute;bottom:7px;left:8px;width:377px;height:44px;object-fit:contain}
+.chat-input{position:absolute;bottom:12px;left:75px;width:285px;height:30px;background:transparent;border:0;outline:none;color:white;font:12px Inter,sans-serif}
+.sendtext{position:absolute;right:14px;bottom:16px;color:#168cff;font-size:11px;display:none}
+@media(max-width:410px){.notif{width:calc(100% - 16px);height:auto;left:8px}.app-grid{left:12px;right:12px}.dock{width:calc(100% - 24px);height:auto}.dock-hit{gap:clamp(8px,5vw,21px);width:calc(100% - 24px);height:auto;min-height:88px;padding:12px 16px}.dock-hit button,.dock-hit img{width:min(64px,16vw);height:min(64px,16vw)}.chat-compose{width:calc(100% - 16px)}}
+
+
+/* Minimal phone-call additions */
+.phone-subscreen{position:absolute;inset:0;background:#000;display:none;overflow:hidden}
+.phone-subscreen.active{display:block}
+.phone-subscreen .call-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.phone-keypad-image{position:absolute;left:0;top:260px;width:100%;height:440px;object-fit:contain;pointer-events:none}
+.phone-key-hitgrid{position:absolute;left:70px;top:260px;width:262px;height:360px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,90px);z-index:4}
+.phone-number-value{top:214px}
+.phone-number-display{display:none;position:absolute;left:0;top:178px;width:100%;height:72px;object-fit:contain;pointer-events:none}
+.phone-number-value{position:absolute;left:24px;right:24px;top:214px;text-align:center;font-size:25px;font-weight:400;letter-spacing:.2px;color:#fff;z-index:3;min-height:30px}
+.phone-key-hitgrid{position:absolute;left:70px;top:260px;width:262px;height:360px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,90px);z-index:4}
+.phone-key-hitgrid button{border:0;border-radius:50%;color:#111;background:transparent;font:600 22px/1 Inter,sans-serif;display:flex;align-items:center;justify-content:center;padding:0;touch-action:manipulation}
+.phone-key-hitgrid button:active{background:#ffffff16}
+.phone-call-hit{position:absolute;left:164px;top:626px;width:74px;height:74px;z-index:5;background:transparent;color:transparent;border:0;padding:0;touch-action:manipulation}
+.phone-setup-link{position:absolute;right:20px;top:112px;z-index:6;font-size:12px;color:#168cff;padding:8px}
+.phone-setup-title{position:absolute;top:100px;left:0;right:0;text-align:center;font-size:17px;font-weight:600}
+.phone-setup-field{position:absolute;left:24px;right:24px;top:180px;height:48px;border-bottom:1px solid #777;color:#fff;font:18px Inter,sans-serif;text-align:center;background:transparent;outline:none;z-index:4}
+.phone-setup-save{position:absolute;top:244px;right:26px;color:#168cff;font-size:14px;z-index:5;padding:8px}
+.phone-incoming-hit{position:absolute;inset:0;z-index:5;background:transparent}
+.phone-fail-retry{display:none;position:absolute;right:35px;bottom:72px;width:88px;height:90px;z-index:6;background:transparent;color:transparent;border:0;padding:0}
+.phone-fail-cancel{display:none;position:absolute;left:35px;bottom:72px;width:88px;height:90px;z-index:6;background:transparent;color:transparent;border:0;padding:0}
+.phone-end-hit{position:absolute;left:156px;bottom:75px;width:90px;height:88px;z-index:6;background:transparent;color:transparent;border:0;padding:0}
+.phone-mini-back{position:absolute;left:12px;top:48px;width:50px;height:42px;z-index:8;background:transparent;color:transparent}
+
+/* LINE screens: additions only */
+.line-screen{background:#000;color:#fff}
+.line-header-home,.line-header-chat{position:absolute;left:0;top:0;width:100%;height:auto;z-index:5;pointer-events:none}
+.line-header-home{height:229px;object-fit:fill}
+.line-header-chat{height:139px;object-fit:fill}
+.line-scroll{position:absolute;left:0;right:0;background:#000;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;overscroll-behavior:contain;z-index:2}
+.line-scroll::-webkit-scrollbar{display:none}
+.home-scroll{top:229px;bottom:88px;padding-top:12px}
+.chat-scroll{top:139px;bottom:88px;padding-top:14px}
+.line-piece{display:block;width:100%;height:auto;max-width:none;pointer-events:none}
+.line-ad{margin:0 0 0}
+.line-service{margin-top:18px}
+.line-group{margin-top:10px}
+.line-friends{margin-top:2px}
+.line-personal{margin-top:14px}
+.line-bottom{position:absolute;left:0;right:0;bottom:0;height:88px;z-index:20}
+.line-bottom>img{position:absolute;left:0;bottom:0;width:100%;height:78px;object-fit:fill;pointer-events:none}
+.line-tab{position:absolute;bottom:12px;height:56px;width:25%;z-index:2;background:transparent;border:0;touch-action:manipulation}
+.line-home-tab{left:0}
+.line-message-tab{left:25%}
+.line-back-hit{position:absolute;left:10px;top:39px;width:51px;height:42px;z-index:12;background:transparent;border:0;padding:0;touch-action:manipulation;display:block}.line-back-hit img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+@media (max-width:420px){.line-screen .line-scroll{overscroll-behavior:contain}}
+
+/* Phone navigation: explicit, touch-friendly tab assets on both phone screens. */
+.screen#phone.active,.screen#phone-keypad.active,.screen#phone-outgoing.active,.screen#phone-failed.active{animation:none!important}
+.phone-bottom-bar{position:absolute;left:50%;bottom:17px;transform:translateX(-50%);width:366px;height:61px;object-fit:fill;z-index:6;pointer-events:none}
+.phone-tab-hit{position:absolute;bottom:22px;height:50px;z-index:8;background:transparent;border:0;padding:0;display:flex;align-items:center;justify-content:center;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.phone-tab-hit img{width:100%;height:100%;object-fit:contain;pointer-events:none}
+.calls-tab-hit{left:36px;width:101px}.keypad-tab-hit{left:213px;width:94px}
+.phone-delete-hit{position:absolute;right:28px;top:205px;width:48px;height:42px;z-index:9;background:transparent;color:transparent;border:0;font:0/0 Arial,sans-serif;padding:0;display:block;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.phone-key-hitgrid{touch-action:manipulation}
+.phone-call-hit,.phone-end-hit,.phone-fail-cancel,.phone-fail-retry{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.phone-list,.messages-list{-webkit-overflow-scrolling:touch;touch-action:pan-y}
+
+/* Phone app v2 (Call Screen_last / Call Screen_key_pad):
+   every .pc element is placed in px of the 1206x2622 screen images, so overlays stay glued to the background at any size. */
+.screen>.call-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.pc{position:absolute;display:block;left:calc(var(--x)/1206*100%);top:calc(var(--y)/2622*100%);width:calc(var(--w)/1206*100%);height:calc(var(--h)/2622*100%);max-width:none}
+img.pc{object-fit:fill;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.pc-black{background:#000;pointer-events:none}
+.pc-bar{z-index:3}
+.phone-tab-btn,.phone-back-hit,.kp-key{background:transparent;border:0;padding:0;margin:0;color:transparent;font-size:0;touch-action:manipulation;-webkit-tap-highlight-color:transparent;outline:none}
+.phone-tab-btn,.phone-back-hit{z-index:8}
+.phone-back-hit{border-radius:999px}
+.phone-back-hit:active{background:#ffffff1a}
+.kp-number{display:flex;align-items:center;justify-content:center;z-index:3;color:#fff;font-weight:300;font-size:36px;line-height:1;letter-spacing:-.4px;white-space:nowrap;overflow:hidden;pointer-events:none}
+.kp-layer{z-index:4}
+.kp-layer>img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.kp-key{position:absolute;z-index:1;border-radius:50%;left:calc(var(--kx)/849*100%);top:calc(var(--ky)/1427*100%);width:calc(243/849*100%);height:calc(245/1427*100%);transition:background-color .12s}
+.kp-key:active,.kp-key.pressed{background:rgba(255,255,255,.28)}
+.kp-key.kp-call:active,.kp-key.kp-call.pressed{background:rgba(255,255,255,.2)}
+/* Phone screens already contain a drawn home indicator: hide the shared one visually, keep it tappable (go home). */
+.device:has(#phone.active) #homeIndicator,.device:has(#phone-keypad.active) #homeIndicator,.device:has(#phone-outgoing.active) #homeIndicator,.device:has(#phone-failed.active) #homeIndicator{background:transparent!important;width:170px!important;height:22px!important;bottom:0!important;border-radius:0!important}
+
+/* Recents: scrollable Call List image under the fixed header; failed-call buttons; messages unread dot */
+.call-list-scroll{z-index:2;background:#000;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;overscroll-behavior:contain}
+.call-list-scroll::-webkit-scrollbar{display:none;width:0;height:0}
+.call-list-scroll>img{display:block;width:calc(1098/1206*100%);margin-left:calc(54/1206*100%);height:auto;max-width:none;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.call-list-scroll>i{display:block;height:0;padding-bottom:calc(260/1206*100%)}
+.fail-hit{z-index:6;background:transparent;border:0;padding:0;margin:0;color:transparent;font-size:0;touch-action:manipulation;-webkit-tap-highlight-color:transparent;outline:none;border-radius:50%}
+.fail-hit:active{background:#ffffff22}
+.msg-unread-dot{position:absolute;left:-6.5px;top:calc(50% - 3.5px);width:7px;height:7px;border-radius:50%;background:#4e91fa;pointer-events:none}
+
+/* Memo + YouTube apps. --kx/--ky: css px per px of the 1206x2622 screen images on the 390x862 screen. */
+:root{--kx:.323383px;--ky:.328757px}
+.device:has(#memo.active) #homeIndicator{background:transparent!important;width:170px!important;height:22px!important;bottom:0!important;border-radius:0!important}
+.memo-card{z-index:3;background:transparent;border:0;padding:0;margin:0;font-size:0;color:transparent;border-radius:calc(60*var(--ky));-webkit-tap-highlight-color:transparent;touch-action:manipulation;outline:none;cursor:pointer}
+.memo-card:active{background:#ffffff14}
+.note-head{z-index:3;background-repeat:no-repeat;pointer-events:none}
+.note-scroll,.yt-scroll{overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:#000}
+.note-scroll::-webkit-scrollbar,.yt-scroll::-webkit-scrollbar{display:none;width:0;height:0}
+.note-scroll{z-index:2}
+.note-inner{position:relative;min-height:100%;overflow:hidden}
+.note-img{position:absolute;max-width:none;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.note-add{display:block;position:relative;box-sizing:border-box;margin:calc((var(--top) - 340)*var(--ky)) 0 0 calc(75*var(--kx));width:calc(1056*var(--kx));min-height:calc(var(--mh)*var(--ky));padding:0 0 calc(120*var(--ky)) 0;border:0;outline:0;resize:none;overflow:hidden;background:transparent;color:#fff;caret-color:#e0ab07;font-family:inherit;font-size:14px;line-height:calc(51*var(--ky));-webkit-appearance:none;border-radius:0;white-space:pre-wrap;word-break:break-word}
+.yt-scroll{z-index:2;touch-action:pan-y}
+.yt-scroll>img{display:block;width:calc(1209*var(--kx));height:calc(6102*var(--ky));max-width:none;margin-top:calc(63*var(--ky));pointer-events:none;user-select:none;-webkit-user-drag:none}
+.yt-scroll>i{display:block;height:calc(160*var(--ky))}
+.yt-clip{z-index:5;overflow:hidden;background:#000;pointer-events:none}
+.yt-clip>img{position:absolute;left:0;top:calc(-130*var(--ky));width:calc(1209*var(--kx));height:calc(330*var(--ky));max-width:none}
+.yt-bottom{z-index:4;max-width:none;object-fit:fill;pointer-events:none;transition:transform .24s ease,opacity .24s ease}
+.yt-bottom.hide{transform:translateY(100%);opacity:0}
+
+</style></head><body><main class="device">
+<div class="dynamic-island" aria-hidden="true"></div>
+<div class="wallpaper lockphoto"></div>
+<div class="screen active" id="lock">
+ <div class="wallpaper lockphoto"></div>
+ <div class="statusbar"><img src="assets/Status Bar.png"></div>
+ <img class="asset clock-img" src="assets/Clock.png">
+ <img class="notif n1" src="assets/Notification_message.png" data-next="chat" alt="메시지 알림">
+ <img class="notif n2" src="assets/Notification_insta.png" alt="Instagram 알림">
+ <img class="notif n3" src="assets/Notification_line.png" data-next="line-chat" alt="LINE 알림">
+ <img class="circular flash" src="assets/Flashlight Button.png"><img class="circular camera" src="assets/Camera Button.png">
+ <button id="lockTap" style="position:absolute;inset:0;background:transparent;z-index:1" aria-label="암호 입력"></button>
+ <div style="position:absolute;inset:0;z-index:2;pointer-events:none"></div>
+</div>
+<div class="screen" id="passcode">
+ <div class="pass-bg"></div><div class="statusbar"><img src="assets/Status Bar.png"></div>
+ <div class="pass-title-wrap"><img src="assets/Passcode.png"></div><div class="pass-dots"><i></i><i></i><i></i><i></i></div><div class="pass-error" id="passError"></div>
+ <img class="passcode-img" src="assets/Passcode Keypad.png">
+ <div class="pass-keys">
+  <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button><button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button><button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button><button disabled></button><button data-key="0">0</button><button data-key="back">⌫</button>
+ </div>
+ <img src="assets/Bottom Action Bar.png" style="position:absolute;width:283px;height:36px;bottom:34px;left:50%;transform:translateX(-50%);object-fit:contain">
+ <button id="passCancel" aria-label="취소" style="position:absolute;right:calc(50% - 141px);bottom:34px;width:70px;height:36px;z-index:5;color:transparent">취소</button>
+</div>
+<div class="screen" id="home">
+ <div class="wallpaper"></div><div class="statusbar"><img src="assets/Status Bar.png"></div>
+ <div class="app-grid" id="appGrid">
+  <button class="app" data-app="instagram"><img src="assets/App Item.png"></button>
+  <button class="app" data-app="notes"><img src="assets/App Item2.png"></button>
+  <button class="app" data-app="youtube"><img src="assets/App Item3.png"></button>
+  <button class="app" data-app="mail"><img src="assets/App Item4.png"></button>
+  <button class="app" data-app="google"><img src="assets/App Item5.png"></button>
+  <button class="app" data-app="safari"><img src="assets/App Item6.png"></button>
+  <button class="app" data-app="facetime"><img src="assets/App Item7.png"></button>
+  <button class="app" data-app="clock"><img src="assets/App Item8.png"></button>
+  <button class="app" data-app="settings"><img src="assets/App Item9.png"></button>
+  <button class="app" data-app="calendar"><img src="assets/App Item10.png"></button>
+  <button class="app" data-app="weather"><img src="assets/App Item11.png"></button>
+  <button class="app" data-app="camera"><img src="assets/App Item12.png"></button>
+  <button class="app" data-app="spotify"><img src="assets/App Item13.png"></button>
+  <button class="app" data-app="setlog"><img src="assets/App Item14.png"></button>
+  <button class="app" data-app="tiktok"><img src="assets/App Item15.png"></button>
+ </div>
+ <img class="dock" src="assets/Dock.png">
+ <div class="dock-hit">
+  <button data-app="phone" aria-label="전화"><img id="phoneDockIcon" src="assets/Notification App.png" data-badged="assets/Notification App.png" data-clean="assets/Dock_App Icons.png"></button>
+  <button data-app="line" aria-label="LINE"><img id="lineDockIcon" src="assets/Notification App2.png" data-badged="assets/Notification App2.png" data-clean="assets/Dock_App Icons2.png"></button>
+  <button data-app="messages" aria-label="메시지"><img id="messageDockIcon" src="assets/Notification App3.png" data-badged="assets/Notification App3.png" data-clean="assets/Dock_App Icons3.png"></button>
+  <button data-app="photos" aria-label="사진"><img id="photosDockIcon" src="assets/Dock_App Icons4.png" data-badged="assets/Dock_App Icons4.png" data-clean="assets/Dock_App Icons4.png"></button>
+ </div>
+</div>
+<div class="screen" id="phone">
+ <img class="call-bg" src="assets/Call Screen_last.png" alt="최근 통화">
+ <div class="pc call-list-scroll" id="phoneList" style="--x:0;--y:342;--w:1206;--h:2228"><img src="assets/Call List.png" alt="최근 통화 목록"><i></i></div>
+ <button type="button" class="pc phone-back-hit" data-back style="--x:66;--y:172;--w:170;--h:142" aria-label="뒤로"></button>
+ <img class="pc pc-bar" src="assets/Bottom Navigation Bar.png" style="--x:48;--y:2364;--w:1098;--h:183" alt="">
+ <img class="pc pc-bar" src="assets/Calls Tab_f.png" style="--x:60;--y:2380;--w:303;--h:150" alt="">
+ <button type="button" class="pc phone-tab-btn phoneCallsTab" style="--x:48;--y:2364;--w:342;--h:183" aria-label="최근 통화"></button>
+ <button type="button" class="pc phone-tab-btn phoneKeypadTab" style="--x:590;--y:2364;--w:320;--h:183" aria-label="키패드"></button>
+</div>
+<div class="screen" id="phone-keypad">
+ <img class="call-bg" src="assets/Call Screen_key_pad.png" alt="전화 키패드">
+ <div class="pc pc-black" style="--x:0;--y:380;--w:1206;--h:2190"></div>
+ <div class="pc kp-number" id="phoneNumberValue" style="--x:60;--y:418;--w:1086;--h:150"></div>
+ <div class="pc kp-layer" style="--x:180;--y:672;--w:849;--h:1427">
+  <img src="assets/Call Keypad.png" alt="">
+  <button type="button" class="kp-key" data-phone-key="1" style="--kx:0;--ky:0" aria-label="1"></button>
+  <button type="button" class="kp-key" data-phone-key="2" style="--kx:303;--ky:0" aria-label="2"></button>
+  <button type="button" class="kp-key" data-phone-key="3" style="--kx:606;--ky:0" aria-label="3"></button>
+  <button type="button" class="kp-key" data-phone-key="4" style="--kx:0;--ky:295" aria-label="4"></button>
+  <button type="button" class="kp-key" data-phone-key="5" style="--kx:303;--ky:295" aria-label="5"></button>
+  <button type="button" class="kp-key" data-phone-key="6" style="--kx:606;--ky:295" aria-label="6"></button>
+  <button type="button" class="kp-key" data-phone-key="7" style="--kx:0;--ky:591" aria-label="7"></button>
+  <button type="button" class="kp-key" data-phone-key="8" style="--kx:303;--ky:591" aria-label="8"></button>
+  <button type="button" class="kp-key" data-phone-key="9" style="--kx:606;--ky:591" aria-label="9"></button>
+  <button type="button" class="kp-key" data-phone-key="-" style="--kx:0;--ky:886" aria-label="하이픈"></button>
+  <button type="button" class="kp-key" data-phone-key="0" style="--kx:303;--ky:886" aria-label="0"></button>
+  <button type="button" class="kp-key" data-phone-action="back" style="--kx:606;--ky:886" aria-label="지우기"></button>
+  <button type="button" class="kp-key kp-call" id="phoneStartCall" style="--kx:303;--ky:1182" aria-label="발신"></button>
+ </div>
+ <img class="pc pc-bar" src="assets/Bottom Navigation Bar.png" style="--x:48;--y:2364;--w:1098;--h:183" alt="">
+ <img class="pc pc-bar" src="assets/Keypad Tap_f.png" style="--x:600;--y:2380;--w:282;--h:150" alt="">
+ <button type="button" class="pc phone-tab-btn phoneCallsTab" style="--x:48;--y:2364;--w:342;--h:183" aria-label="최근 통화"></button>
+ <button type="button" class="pc phone-tab-btn phoneKeypadTab" style="--x:590;--y:2364;--w:320;--h:183" aria-label="키패드"></button>
+</div>
+<div class="screen" id="phone-outgoing">
+ <img class="call-bg" src="assets/Call Screen_Loding.png" alt="발신 중">
+ <button class="phone-end-hit" id="phoneEndCall" aria-label="통화 종료">종료</button>
+</div>
+<div class="screen" id="phone-failed">
+ <img class="call-bg" src="assets/Call Screen_Loding_fale.png" alt="통화 연결 실패">
+ <button type="button" class="pc fail-hit" id="phoneFailCancel" style="--x:110;--y:2130;--w:262;--h:330" aria-label="취소">취소</button>
+ <button type="button" class="pc fail-hit" id="phoneFailRetry" style="--x:836;--y:2130;--w:262;--h:330" aria-label="다시 전화">다시 전화</button>
+</div>
+<div class="screen" id="messages">
+ <div class="statusbar"><img src="assets/Status Bar.png"></div><img class="topbar" src="assets/Header.png">
+ <img class="backbtn" src="assets/Back Button.png" data-back><div class="msg-title">메시지</div><img class="filterbtn" src="assets/Fitter Button.png">
+ <div class="messages-list" id="messagesList"></div>
+</div>
+<div class="screen" id="chat">
+ <img class="chat-head" src="assets/Header.png"><button class="chat-back" id="chatBack" aria-label="뒤로"></button><img class="chat-avatar" src="assets/Profile.png">
+ <div class="chat-area" id="chatArea"></div><img class="chat-compose" src="assets/Text Field.png"><input class="chat-input" id="chatInput" placeholder="iMessage">
+</div>
+<div class="screen" id="photos">
+ <div class="gallery-picture-viewport" id="galleryViewport" aria-label="사진 갤러리"><img class="gallery-picture" id="galleryPicture" src="assets/Picture.png" alt="갤러리 사진"></div>
+ <img class="backbtn gallery-back" src="assets/Back Button.png" data-back alt="뒤로가기">
+ <img class="gallery-header" src="assets/Header_G.png" alt="">
+ <img class="gallery-nav" src="assets/Navigation Item_G.png" alt="">
+ <img class="gallery-search" src="assets/Search Button.png" id="gallerySearch" alt="검색">
+</div>
+<div class="screen" id="instagram"><div class="statusbar"><img src="assets/Status Bar.png"></div><img class="backbtn" src="assets/Back Button.png" data-back><div style="position:absolute;top:100px;left:20px;font-size:24px">Instagram</div><img src="assets/Notification App4.png" style="position:absolute;top:150px;left:25px;width:72px;height:95px;object-fit:contain"></div>
+<div class="screen line-screen" id="line-home">
+ <div class="line-scroll home-scroll" id="lineHomeScroll">
+  <img class="line-piece line-ad" src="assets/ad.png" alt="">
+  <img class="line-piece line-service" src="assets/service.png" alt="">
+  <img class="line-piece line-group" src="assets/group tap.png" alt="">
+  <img class="line-piece line-friends" src="assets/friends list.png" alt="">
+ </div>
+ <img class="line-header-home" src="assets/header_l_h.png" alt="">
+ <button type="button" class="line-back-hit" id="lineBackButton" aria-label="홈 화면으로 돌아가기"><img src="assets/Back Button.png" alt="뒤로"></button>
+ <div class="line-bottom"><img src="assets/bottom navigation bar_line.png" alt=""><button class="line-tab line-home-tab" aria-label="홈"></button><button class="line-tab line-message-tab" aria-label="대화"></button></div>
+</div>
+<div class="screen line-screen" id="line-chat">
+ <div class="line-scroll chat-scroll" id="lineChatScroll">
+  <img class="line-piece line-ad" src="assets/ad.png" alt="">
+  <img class="line-piece line-personal" src="assets/personal chat list.png" alt="">
+ </div>
+ <img class="line-header-chat" src="assets/header_cc.png" alt="">
+ <div class="line-bottom"><img src="assets/bottom navigation bar_line_chat.png" alt=""><button class="line-tab line-home-tab" aria-label="홈"></button><button class="line-tab line-message-tab" aria-label="대화"></button></div>
+</div>
+<div class="screen" id="other"><div class="statusbar"><img src="assets/Status Bar.png"></div><img class="backbtn" src="assets/Back Button.png" data-back><div id="otherTitle" style="position:absolute;top:100px;left:20px;font-size:22px">앱</div></div>
+<div class="screen" id="memo">
+ <img class="call-bg" src="assets/Memo Screen.png" alt="메모">
+ <div class="pc pc-black" style="--x:50;--y:2380;--w:1110;--h:185"></div>
+ <img class="pc pc-bar" src="assets/Memo search bar.png" style="--x:69;--y:2394;--w:1068;--h:153" alt="">
+ <button type="button" class="pc phone-back-hit" data-back style="--x:75;--y:180;--w:181;--h:126" aria-label="뒤로"></button>
+ <button type="button" class="pc memo-card" data-memo="birth" style="--x:33;--y:693;--w:1137;--h:251" aria-label="생일"></button>
+ <button type="button" class="pc memo-card" data-memo="puding" style="--x:33;--y:1098;--w:1137;--h:251" aria-label="푸딩 레시피"></button>
+ <button type="button" class="pc memo-card" data-memo="make" style="--x:33;--y:1386;--w:1137;--h:251" aria-label="만들고싶은거"></button>
+ <button type="button" class="pc memo-card" data-memo="mistake" style="--x:33;--y:1791;--w:1137;--h:251" aria-label="ㅇㅇㅐ"></button>
+ <button type="button" class="pc memo-card" data-memo="place" style="--x:33;--y:2079;--w:1137;--h:251" aria-label="같이 가고 싶은 장소"></button>
+</div>
+<div class="screen" id="memo-birth">
+ <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/Memo_birth.png');background-size:100% calc(2622/340*100%)"></div>
+ <button type="button" class="pc phone-back-hit" data-note-back style="--x:75;--y:180;--w:181;--h:126" aria-label="메모 목록으로"></button>
+ <button type="button" class="pc phone-back-hit" data-note-done="birth" style="--x:1002;--y:180;--w:126;--h:126" aria-label="완료"></button>
+ <div class="pc note-scroll" id="note-scroll-birth" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/Memo_birth.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-birth" data-note="birth" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:537.5;--mh:2037.5"></textarea></div></div>
+</div>
+<div class="screen" id="memo-puding">
+ <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/Memo_puding.png');background-size:100% calc(2622/340*100%)"></div>
+ <button type="button" class="pc phone-back-hit" data-note-back style="--x:75;--y:180;--w:181;--h:126" aria-label="메모 목록으로"></button>
+ <button type="button" class="pc phone-back-hit" data-note-done="puding" style="--x:1002;--y:180;--w:126;--h:126" aria-label="완료"></button>
+ <div class="pc note-scroll" id="note-scroll-puding" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/memo_puding_in.png" style="left:calc(75*var(--kx));top:calc((363 - 340)*var(--ky));width:calc(1053*var(--kx));height:calc(2317*var(--ky))" alt=""><textarea class="note-add" id="note-add-puding" data-note="puding" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:2679;--mh:300"></textarea></div></div>
+</div>
+<div class="screen" id="memo-make">
+ <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/Memo_make.png');background-size:100% calc(2622/340*100%)"></div>
+ <button type="button" class="pc phone-back-hit" data-note-back style="--x:75;--y:180;--w:181;--h:126" aria-label="메모 목록으로"></button>
+ <button type="button" class="pc phone-back-hit" data-note-done="make" style="--x:1002;--y:180;--w:126;--h:126" aria-label="완료"></button>
+ <div class="pc note-scroll" id="note-scroll-make" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/Memo_make.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-make" data-note="make" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:639.5;--mh:1935.5"></textarea></div></div>
+</div>
+<div class="screen" id="memo-mistake">
+ <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/Memo_mistake.png');background-size:100% calc(2622/340*100%)"></div>
+ <button type="button" class="pc phone-back-hit" data-note-back style="--x:75;--y:180;--w:181;--h:126" aria-label="메모 목록으로"></button>
+ <button type="button" class="pc phone-back-hit" data-note-done="mistake" style="--x:1002;--y:180;--w:126;--h:126" aria-label="완료"></button>
+ <div class="pc note-scroll" id="note-scroll-mistake" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/Memo_mistake.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-mistake" data-note="mistake" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:588.5;--mh:1986.5"></textarea></div></div>
+</div>
+<div class="screen" id="memo-place">
+ <div class="pc note-head" style="--x:0;--y:0;--w:1206;--h:340;background-image:url('assets/Memo_place.png');background-size:100% calc(2622/340*100%)"></div>
+ <button type="button" class="pc phone-back-hit" data-note-back style="--x:75;--y:180;--w:181;--h:126" aria-label="메모 목록으로"></button>
+ <button type="button" class="pc phone-back-hit" data-note-done="place" style="--x:1002;--y:180;--w:126;--h:126" aria-label="완료"></button>
+ <div class="pc note-scroll" id="note-scroll-place" style="--x:0;--y:340;--w:1206;--h:2235"><div class="note-inner"><img class="note-img" src="assets/Memo_place.png" style="left:0;top:calc(-340*var(--ky));width:calc(1206*var(--kx));height:calc(2622*var(--ky))" alt=""><textarea class="note-add" id="note-add-place" data-note="place" rows="1" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="메모에 내용 추가" style="--top:843.5;--mh:1731.5"></textarea></div></div>
+</div>
+<div class="screen" id="youtube">
+ <img class="call-bg" src="assets/Youtube Screen.png" alt="Youtube">
+ <div class="pc yt-scroll" id="ytScroll" style="--x:0;--y:330;--w:1206;--h:2292"><img src="assets/Youtube video list.png" alt="영상 목록"><i></i></div>
+ <img class="pc yt-bottom" id="ytBottom" src="assets/Youtube bottom navigation bar.png" style="--x:0;--y:2412;--w:1209;--h:210" alt="">
+ <div class="pc yt-clip" style="--x:0;--y:130;--w:1206;--h:200"><img src="assets/Youtube nevigation bar.png" alt=""></div>
+ <button type="button" class="pc phone-back-hit" id="ytLogo" style="--x:40;--y:190;--w:350;--h:110;z-index:8" aria-label="홈으로"></button>
+</div>
+<div style="position:absolute;z-index:50;bottom:7px;left:50%;transform:translateX(-50%);width:118px;height:5px;border-radius:5px;background:#fff;cursor:pointer" id="homeIndicator"></div>
+</main>
+<script>
+const ids=['lock','passcode','home','phone','phone-keypad','phone-outgoing','phone-failed','messages','chat','instagram','line-home','line-chat','other','photos'];let nextAfterUnlock='home',digits='',lastPhoneScreen='phone';
+function fitDevice(){const scale=Math.min((window.innerWidth-16)/402,(window.innerHeight-16)/874);document.documentElement.style.setProperty('--device-scale',String(Math.max(0.1,scale)));}
+fitDevice();window.addEventListener('resize',fitDevice);window.addEventListener('orientationchange',fitDevice);
+function show(id){document.querySelectorAll('.screen').forEach(s=>{s.classList.remove('active');});const s=document.getElementById(id);if(s)s.classList.add('active');if(id==='chat')requestAnimationFrame(()=>{const a=document.getElementById('chatArea');if(a)a.scrollTop=a.scrollHeight;});}
+function passDots(){document.querySelectorAll('.pass-dots i').forEach((e,i)=>e.classList.toggle('on',i<digits.length))}
+function unlock(){if(digits==='0207'){show(nextAfterUnlock);digits='';passDots();document.getElementById('passError').textContent='';}else if(digits.length===4){document.getElementById('passError').textContent='암호가 올바르지 않습니다';setTimeout(()=>{digits='';passDots();document.getElementById('passError').textContent=''},650)}}
+document.getElementById('lockTap').addEventListener('click',()=>{nextAfterUnlock='home';show('passcode')});
+document.querySelectorAll('.notif').forEach(n=>n.addEventListener('click',e=>{e.stopPropagation();if(!n.dataset.next)return;nextAfterUnlock=n.dataset.next;show('passcode')}));
+document.querySelectorAll('[data-key]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.key==='back'){digits=digits.slice(0,-1)}else if(digits.length<4){digits+=b.dataset.key}passDots();unlock()}));
+document.getElementById('passCancel').addEventListener('click',()=>{if(digits.length){digits=digits.slice(0,-1);passDots();document.getElementById('passError').textContent=''}else{nextAfterUnlock='home';show('lock')}});
+function setDockClean(app){
+ const map={phone:'phoneDockIcon',line:'lineDockIcon',messages:'messageDockIcon',photos:'photosDockIcon'};
+ const ids=app?[map[app]]:Object.values(map);
+ ids.filter(Boolean).forEach(id=>{const img=document.getElementById(id);if(img)img.src=img.dataset.clean;});
+}
+function leaveApp(app){setDockClean(app);show('home');}
+document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>{
+ const active=document.querySelector('.screen.active');
+ const app=active?.id;
+ if(app==='phone-outgoing'||app==='phone-failed'||app==='phone-keypad'){callRunId++;clearCallAudio();leaveApp('phone');return;}
+ if(app==='phone'||app==='line'||app==='line-home'||app==='line-chat'||app==='messages'||app==='photos')leaveApp(app==='line-home'||app==='line-chat'?'line':app);else show('home');
+}));
+document.getElementById('homeIndicator').addEventListener('click',()=>{
+ const active=document.querySelector('.screen.active');const app=active?.id;
+ if(app==='phone-outgoing'||app==='phone-failed'||app==='phone-keypad'){callRunId++;clearCallAudio();leaveApp('phone');return;}
+ if(app==='phone'||app==='line'||app==='line-home'||app==='line-chat'||app==='messages'||app==='photos')leaveApp(app==='line-home'||app==='line-chat'?'line':app);else show('home');
+});
+// Phone screens are full-screen images (Call Screen_last / Call Screen_key_pad) with a layered, clickable bottom bar.
+// Phone-only call simulation: no real phone call is ever placed.
+const configuredVirtualNumber='010-2004-0207';let phoneDigits='',callTimer=null,ringContext=null,ringOscillators=[],callRunId=0;
+const phoneNumberValue=document.getElementById('phoneNumberValue');
+function formatPhone(raw){if(raw.indexOf('-')>=0)return raw;const d=raw;return d.length>7?d.replace(/^(\d{3})(\d{4})(\d{0,4})$/,(m,a,b,c)=>c?a+'-'+b+'-'+c:a+'-'+b):(d.length>3?d.replace(/^(\d{3})(\d+)$/,'$1-$2'):d);}
+function renderPhoneDigits(){const t=formatPhone(phoneDigits);phoneNumberValue.textContent=t;phoneNumberValue.style.fontSize=(t.length<=13?36:Math.max(18,Math.floor(36*13/t.length)))+'px';}
+function clearCallAudio(){if(callTimer){clearTimeout(callTimer);callTimer=null;}try{if('speechSynthesis' in window)window.speechSynthesis.cancel();}catch(e){}ringOscillators.forEach(o=>{try{o.stop();}catch(e){}});ringOscillators=[];if(ringContext){try{ringContext.close();}catch(e){}ringContext=null;}}
+function playRingback(){try{const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return;ringContext=new Ctx();const ctx=ringContext;const start=()=>{if(ctx.state==='suspended')ctx.resume();let t=ctx.currentTime;for(let k=0;k<4;k++){const begin=t+k*1.75;for(const freq of [440,480]){const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type='sine';osc.frequency.value=freq;gain.gain.setValueAtTime(0.0001,begin);gain.gain.exponentialRampToValueAtTime(0.09,begin+0.04);gain.gain.setValueAtTime(0.09,begin+1.05);gain.gain.exponentialRampToValueAtTime(0.0001,begin+1.12);osc.connect(gain);gain.connect(ctx.destination);osc.start(begin);osc.stop(begin+1.14);ringOscillators.push(osc);}}};start();}catch(e){}}
+function stopCallToKeypad(){callRunId++;clearCallAudio();renderPhoneDigits();show('phone-keypad');}
+function beginVirtualCall(){
+ const entered=phoneDigits.replace(/[^0-9*#]/g,'');
+ if(entered!==configuredVirtualNumber.replace(/[^0-9*#]/g,'')) return;
+ callRunId++; const run=callRunId; clearCallAudio(); show('phone-outgoing'); playRingback();
+ callTimer=setTimeout(()=>{
+  if(run!==callRunId)return;
+  if(callTimer){clearTimeout(callTimer);callTimer=null;}
+  // Switch to the supplied failure image exactly when the spoken prompt begins.
+  show('phone-failed');
+  if(!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance==='undefined'){
+   callTimer=setTimeout(()=>{if(run===callRunId)stopCallToKeypad();},3000); return;
+  }
+  const utter=new SpeechSynthesisUtterance('상대방이 전화를 받지 않습니다.'); utter.lang='ko-KR'; utter.rate=0.95;
+  let finished=false;
+  const finish=()=>{if(finished||run!==callRunId)return;finished=true;if(callTimer){clearTimeout(callTimer);callTimer=null;}stopCallToKeypad();};
+  utter.onend=finish; utter.onerror=finish;
+  // Fallback for mobile browsers where speech events sometimes do not fire.
+  callTimer=setTimeout(finish,5000);
+  try{window.speechSynthesis.speak(utter);}catch(e){finish();}
+ },7000);
+}
+
+document.querySelectorAll('.phoneCallsTab').forEach(b=>b.addEventListener('click',()=>{callRunId++;clearCallAudio();lastPhoneScreen='phone';show('phone');}));
+document.querySelectorAll('.phoneKeypadTab').forEach(b=>b.addEventListener('click',()=>{callRunId++;clearCallAudio();lastPhoneScreen='phone-keypad';show('phone-keypad');}));
+function flashKey(b){b.classList.add('pressed');setTimeout(()=>b.classList.remove('pressed'),140);}
+function pressPhoneKey(k){
+ if(k==='-'){const shown=formatPhone(phoneDigits);if(shown&&shown.slice(-1)!=='-'&&shown.length<16)phoneDigits=shown+'-';}
+ else if(phoneDigits.length<16)phoneDigits+=k;
+ renderPhoneDigits();
+}
+document.querySelectorAll('[data-phone-key]').forEach(b=>b.addEventListener('click',()=>{flashKey(b);pressPhoneKey(b.dataset.phoneKey);}));
+document.querySelectorAll('[data-phone-action="back"]').forEach(b=>b.addEventListener('click',()=>{flashKey(b);phoneDigits=phoneDigits.slice(0,-1);renderPhoneDigits();}));
+renderPhoneDigits();
+document.getElementById('phoneStartCall').addEventListener('click',beginVirtualCall);
+document.getElementById('phoneEndCall').addEventListener('click',stopCallToKeypad);
+document.getElementById('phoneFailCancel').addEventListener('click',stopCallToKeypad);
+document.getElementById('phoneFailRetry').addEventListener('click',()=>{if(callTimer){clearTimeout(callTimer);callTimer=null;}phoneDigits=configuredVirtualNumber;renderPhoneDigits();beginVirtualCall();});
+
+// Restore the original compact message-list rows with side margins and natural spacing.
+const messageRowAssets=['List Item_m1_1.png','List Item_m2.png','List Item_m3.png','List Item_m4.png','List Item_m5.png','List Item_m6.png','List Item_m7.png','List Item_m8.png'];
+const messagesList=document.getElementById('messagesList');
+messagesList.innerHTML=messageRowAssets.map((f,i)=>`<button class="list-item message-row" data-message="${i}" aria-label="메시지 ${i+1}"><img src="assets/${f}" alt="">${i===0?'<span class="msg-unread-dot" id="msgUnreadDot"></span>':''}</button>`).join('');
+messagesList.addEventListener('click',e=>{if(e.target.closest('.message-row[data-message="0"]')){show('chat');requestAnimationFrame(()=>{const area=document.getElementById('chatArea');area.scrollTop=area.scrollHeight;});}});
+new MutationObserver(()=>{if(document.getElementById('chat').classList.contains('active')){const d=document.getElementById('msgUnreadDot');if(d)d.remove();}}).observe(document.getElementById('chat'),{attributes:true,attributeFilter:['class']});
+const chatItems=[
+ {src:'Send Message.png',side:'out',time:null},
+ {src:'Yuma Message 0.png',side:'in',time:null},
+ {src:'Yuma Message.png',side:'in',time:null},
+ {src:'Send Message2.png',side:'out',time:null},
+ {src:'Send Message3.png',side:'out',time:'12:26'},
+ {src:'Send Message4.png',side:'out',time:'18:48'},
+ {src:'Send Message5.png',side:'out',time:'23:17'},
+ {src:'Yuma Message2.png',side:'in',time:null}
+];
+const chatArea=document.getElementById('chatArea');chatArea.innerHTML=chatItems.map(m=>`${m.time?`<div class="chat-time">${m.time}</div>`:''}<div class="chat-msg ${m.side==='in'?'incoming':'outgoing'}"><img src="assets/${m.src}" alt=""></div>`).join('');
+requestAnimationFrame(()=>{chatArea.scrollTop=chatArea.scrollHeight;});
+document.querySelectorAll('[data-app]').forEach(b=>b.addEventListener('click',()=>{
+ const a=b.dataset.app;
+ // LINE opens its home screen; its dock badge clears after entry.
+ if(a==='line'){
+   show('line-home');
+   setDockClean('line');
+   document.getElementById('lineHomeScroll').scrollTop=0;
+   return;
+ }
+ // Only phone, messages, and photos are clickable.
+ if(['phone','messages','photos'].includes(a)){
+   show(a);
+   if(a==='phone'){setDockClean('phone');show('phone');return;}
+   if(a==='photos'){
+     const pic=document.getElementById('galleryPicture');
+     if(pic && !pic.dataset.initialized){pic.style.top='0px';pic.dataset.initialized='1';pic.onload=()=>{const vp=document.getElementById('galleryViewport');vp.scrollTop=Math.max(0,pic.offsetHeight-vp.clientHeight);};if(pic.complete){const vp=document.getElementById('galleryViewport');vp.scrollTop=Math.max(0,pic.offsetHeight-vp.clientHeight);}}
+   }
+ } else return;
+}));
+document.getElementById('chatBack').addEventListener('click',()=>{
+ const first=document.querySelector('#messagesList [data-message="0"] img');
+ if(first) first.src='assets/List Item_m1.png';
+ show('messages');
+});
+// LINE navigation and exit controls
+document.querySelector('#line-home .line-message-tab').addEventListener('click',()=>{show('line-chat');document.getElementById('lineChatScroll').scrollTop=0;});
+document.querySelector('#line-chat .line-home-tab').addEventListener('click',()=>{show('line-home');});
+document.getElementById('lineBackButton').addEventListener('click',()=>leaveApp('line'));
+document.querySelector('#line-home .line-home-tab').addEventListener('click',()=>{document.getElementById('lineHomeScroll').scrollTop=0;});
+document.querySelector('#line-chat .line-message-tab').addEventListener('click',()=>{document.getElementById('lineChatScroll').scrollTop=0;});
+// 갤러리: 실제 세로 스크롤 영역. 손가락을 아래쪽(최근 사진)에서 위로 쓸어 올리면 사진이 위로 이동함.
+const galleryViewport=document.getElementById('galleryViewport');
+const galleryPicture=document.getElementById('galleryPicture');
+galleryViewport.style.overflowY='auto';
+galleryViewport.style.overflowX='hidden';
+galleryViewport.style.scrollbarWidth='none';
+galleryViewport.style.touchAction='pan-y';
+galleryPicture.style.position='relative';
+galleryPicture.style.top='0px';
+galleryPicture.draggable=false;
+galleryPicture.addEventListener('dragstart',e=>e.preventDefault());
+galleryPicture.style.touchAction='pan-y';
+// Keep the gallery viewport scrollable even when it receives touch input on iOS.
+galleryViewport.addEventListener('touchmove',e=>{ if(e.touches.length===1) e.stopPropagation(); },{passive:true});
+document.getElementById('gallerySearch').addEventListener('click',()=>{});
+function sendChatMessage(){const inp=document.getElementById('chatInput');if(inp.value.trim()){let d=document.createElement('div');d.textContent=inp.value;d.style.cssText='margin:10px 8px 10px auto;padding:9px 13px;border-radius:18px;background:#0788ff;max-width:75%;font-size:12px;overflow-wrap:anywhere';document.getElementById('chatArea').appendChild(d);inp.value='';document.getElementById('chatArea').scrollTop=document.getElementById('chatArea').scrollHeight;}}document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();sendChatMessage();}});
+
+// ===== Memo app: list -> note pages (note pages are images; text the user adds is appended below the original text) =====
+document.querySelector('[data-app="notes"]').addEventListener('click',()=>show('memo'));
+document.querySelectorAll('[data-memo]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.memo;show('memo-'+k);document.getElementById('note-scroll-'+k).scrollTop=0;}));
+document.querySelectorAll('[data-note-back]').forEach(b=>b.addEventListener('click',()=>{if(document.activeElement&&document.activeElement.blur)document.activeElement.blur();show('memo');}));
+document.querySelectorAll('[data-note-done]').forEach(b=>b.addEventListener('click',()=>{document.getElementById('note-add-'+b.dataset.noteDone).blur();}));
+function memoStore(k,v){try{if(v===undefined)return localStorage.getItem('memoAdded_'+k);localStorage.setItem('memoAdded_'+k,v);}catch(e){return null;}}
+function noteAutosize(ta){ta.style.height='auto';ta.style.height=ta.scrollHeight+'px';}
+document.querySelectorAll('.note-add').forEach(ta=>{
+ const saved=memoStore(ta.dataset.note);if(saved)ta.value=saved;
+ noteAutosize(ta);
+ ta.addEventListener('input',()=>{noteAutosize(ta);memoStore(ta.dataset.note,ta.value);});
+});
+new MutationObserver(()=>{document.querySelectorAll('.screen.active .note-add').forEach(noteAutosize);}).observe(document.querySelector('.device'),{subtree:true,attributes:true,attributeFilter:['class']});
+// ===== YouTube app: fixed top bar, scrolling video list, bottom bar visible only at the very top =====
+const ytScroll=document.getElementById('ytScroll'),ytBottom=document.getElementById('ytBottom');
+document.querySelector('[data-app="youtube"]').addEventListener('click',()=>{show('youtube');ytScroll.scrollTop=0;ytBottom.classList.remove('hide');});
+ytScroll.addEventListener('scroll',()=>{ytBottom.classList.toggle('hide',ytScroll.scrollTop>2);},{passive:true});
+document.getElementById('ytLogo').addEventListener('click',()=>show('home'));
+</script></body></html>
